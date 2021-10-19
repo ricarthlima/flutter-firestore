@@ -1,16 +1,22 @@
-# flutter_firestore
+# Alura+ - Flutter com Cloud Firestore do Firebase
 
-A new Flutter project.
+Projeto desenvolvido para gravação do Alura+ sobre integração e uso do Banco de Dados na Nuvem Firestore com uma aplicação Flutter.
 
-## Getting Started
+## Funcionamento
 
-This project is a starting point for a Flutter application.
+![gif demonstrando funcionamento](flutter-firestore.gif)
+Trata-se de um simples projeto onde armazenamos na nuvem nomes adicionados via um campo de texto, e exibimo-os na tela em forma de lista, coletando essa informação direto da nuvem.
 
-A few resources to get you started if this is your first Flutter project:
+## Uso do Repositório
+Para ter acesso ao projeto completo, basta baixar o arquivo .zip ou dar um clone no repositório:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```
+git clone https://github.com/ricarthlima/flutter-firestore.git
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Caso queira começar do ponto onde o Alura+ começa (para treino), fazer um checkout para a branch `to_alura+`.
+
+```
+git clone https://github.com/ricarthlima/flutter-firestore.git
+git checkout to_alura+
+```
