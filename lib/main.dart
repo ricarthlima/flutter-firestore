@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
@@ -10,7 +9,6 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,22 +28,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  FirebaseFirestore db = FirebaseFirestore.instance;
+  // Instancia do banco Cloud Firestore
+
   TextEditingController _textController = TextEditingController();
   List<String> listNames = [];
 
   @override
   void initState() {
-    refresh();
+    // Atualização Inicial
 
-    db.collection("contacts").snapshots().listen((snapshot) {
-      setState(() {
-        listNames = [];
-        snapshot.docs.forEach((document) {
-          listNames.add(document.get("name"));
-        });
-      });
-    });
+    // Atualização em Tempo Real
+
     super.initState();
   }
 
@@ -98,23 +91,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void refresh() async {
-    QuerySnapshot query = await db.collection("contacts").get();
-
-    listNames = [];
-    query.docs.forEach((document) {
-      print(document.id); //Mostrar o id que escolhemos
-      String data = document.get("name");
-      setState(() {
-        listNames.add(data);
-      });
-    });
+    // Atualização manual
   }
 
   void sendData() {
+    //Geração do ID
     String id = Uuid().v1();
-    db.collection("contacts").doc(id).set({"name": _textController.text});
 
-    //Visual Feedback
+    //Feedback visual
     _textController.text = "";
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
